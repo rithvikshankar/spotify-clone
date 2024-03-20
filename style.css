@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,500;0,700;1,300;1,500;1,700&display=swap");
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -7,12 +9,29 @@
 :root {
   --outer-box-padding: 0.5rem; /* left box, right box, space between blocks */
   --block-padding: 1.2rem;
+  --button-padding: 0.9rem;
+  --card-padding: 1.1rem;
+  --icon-heading-gap: 1.2rem;
+  --bg-grey: #121212;
+  --block-border-radius: 0.3rem;
+  --bg-card-gradient: linear-gradient(
+    0deg,
+    #181818 0%,
+    #151515 50%,
+    #181818 100%
+  );
+  --bg-card-gradient-active: linear-gradient(
+    0deg,
+    #282828 0%,
+    #222222 50%,
+    #282828 100%
+  );
 }
 
 body {
   background-color: black;
   color: white;
-  font-family: helvetica, arial, sans-serif;
+  font-family: Plus Jakarta Sans, Arial, sans-serif;
 }
 
 .container {
@@ -21,14 +40,10 @@ body {
 
 .left {
   width: 25vw;
-  padding: 0.5rem;
+  padding: 0.5rem 0.25rem 0.5rem 0.5rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-}
-
-.right {
-  width: 75vw;
 }
 
 .home {
@@ -37,9 +52,14 @@ body {
   flex-direction: column;
   gap: 1.2rem;
   padding: var(--block-padding);
-  border-radius: 0.3rem;
+  border-radius: var(--block-border-radius);
   font-weight: bold;
-  color: rgba(255, 255, 255, 0.6);
+  /* color: rgba(255, 255, 255, 0.6); */
+  background-color: var(--bg-grey);
+}
+
+.home:hover {
+  cursor: pointer;
 }
 
 .home ul {
@@ -50,14 +70,174 @@ body {
 
 .home ul li {
   display: flex;
-  gap: 1rem;
+  gap: var(--icon-heading-gap);
   align-items: center;
   width: 1.4rem;
   list-style: none;
 }
 
 .library {
+  flex-grow: 1;
   padding: var(--block-padding);
-  color: rgba(255, 255, 255, 0.6);
+  /* color: rgba(255, 255, 255, 0.6); */
   font-weight: bold;
+  border-radius: var(--block-border-radius);
+  /* min-height: 50vh; */
+  background-color: var(--bg-grey);
+}
+
+.your-library-heading {
+  display: flex;
+  align-items: center;
+  gap: var(--icon-heading-gap);
+}
+
+.your-library-heading img {
+  width: 1.4rem;
+}
+
+h2 {
+  font-size: 1rem;
+}
+
+/* Right side */
+
+.right {
+  width: 75vw;
+  padding: 0.5rem 0.5rem 0.5rem 0.25rem;
+}
+
+.right-content {
+  background-color: #121212;
+  height: 100%;
+  border-radius: var(--block-border-radius);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #101010;
+  padding: 0.5rem;
+  height: 4rem;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.forward-button {
+  opacity: 60%;
+  /* border: 1px solid white;
+  border-radius: 0.3rem; */
+}
+
+.back-button {
+  opacity: 60%;
+  margin-left: 1rem;
+  margin-right: 0.5rem;
+  /* border: 1px solid white;
+  border-radius: 0.3rem; */
+}
+
+.signup-button {
+  border: none;
+  background-color: inherit;
+  padding: var(--button-padding);
+  color: rgba(255, 255, 255, 0.6);
+  width: 7rem;
+  border-radius: 6rem;
+  margin-right: 1rem;
+  font-weight: bold;
+  font-size: 0.95rem;
+  letter-spacing: 0.3px;
+}
+
+.login-button {
+  border: none;
+  background-color: white;
+  padding: var(--button-padding);
+  color: #101010;
+  width: 7rem;
+  border-radius: 6rem;
+  font-weight: bold;
+  font-size: 0.95rem;
+  letter-spacing: 0.3px;
+}
+
+.playlists {
+  padding: var(--block-padding);
+}
+
+.playlists h2 {
+  font-size: 1.35rem;
+}
+
+.card-container {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.playlists .card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 13.5rem;
+  height: 18rem;
+  padding: var(--card-padding);
+  background: var(--bg-card-gradient);
+  border-radius: 0.4rem;
+}
+
+.playlists .card img {
+  width: 100%;
+  object-fit: contain;
+}
+
+.playlists .card p {
+  font-size: 0.8rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* line-clamp: 2; */
+}
+
+.playlists .card h3 {
+  font-size: 1rem;
+}
+
+.playlists .play {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 5.8rem;
+  right: 1.4rem;
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+
+.playlists .card:hover,
+.playlists .card:active {
+  background: var(--bg-card-gradient-active);
+  cursor: pointer;
+}
+
+.playlists .card:hover .play {
+  opacity: 1;
+}
+
+.playlists .play:hover {
+  opacity: 1;
+  transform: scale(1.2);
+  transition: transform 0.2s ease;
+}
+
+.playlists .play:hover svg {
+  fill: brightness(120%); /* Increase brightness by 10% */
 }

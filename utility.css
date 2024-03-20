@@ -19,6 +19,10 @@
   filter: invert(1);
 }
 
-.bg-grey {
-  background-color: #121212;
+.dimmed {
+  opacity: 60%;
 }
+
+/* .bg-grey {
+  background-color: #121212;
+} */
