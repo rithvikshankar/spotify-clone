@@ -6,11 +6,12 @@
     <title>Spotify</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="utility.css" />
+    <link rel="icon" href="assets/favicon1.ico" type="image/x-icon" />
   </head>
   <body>
     <div class="container">
       <div class="left-right-container">
-        <div class="left border">
+        <div class="left">
           <section class="home">
             <div class="logo invert">
               <img src="assets/logo.svg" alt="logo" />
@@ -55,7 +56,7 @@
           </section>
           <!-- <section class="footer"></section> -->
         </div>
-        <div class="right border">
+        <div class="right">
           <div class="right-content">
             <div class="header">
               <div class="nav">
@@ -213,31 +214,40 @@
         </div>
       </div>
 
-      <div class="music-controls border">
-        <!-- <div class="song-info"></div> -->
-        <div class="music-control-btns">
-          <button class="prev-song-btn">
-            <img
-              class="prev-song-btn-svg dimmed-undimmed"
-              src="assets/prevSong.svg"
-              alt="previous song"
-            />
-          </button>
-          <button class="play-btn">
-            <img class="play-btn-svg" src="assets/play.svg" alt="play" />
-          </button>
-          <button class="next-song-btn">
-            <img
-              class="next-song-btn-svg dimmed-undimmed"
-              src="assets/nextSong.svg"
-              alt="next song"
-            />
-          </button>
+      <div class="music-controls">
+        <div class="song-info"></div>
+        <div class="control-btns-seekbar-container">
+          <div class="music-control-btns">
+            <button class="prev-song-btn" id="prev">
+              <img
+                class="prev-song-btn-svg dimmed-undimmed"
+                id="prevSvg"
+                src="assets/prevSong.svg"
+                alt="previous song"
+              />
+            </button>
+            <button class="play-btn" id="play">
+              <img
+                class="play-btn-svg"
+                id="playSvg"
+                src="assets/play.svg"
+                alt="play"
+              />
+            </button>
+            <button class="next-song-btn" id="next">
+              <img
+                class="next-song-btn-svg dimmed-undimmed"
+                id="nextSvg"
+                src="assets/nextSong.svg"
+                alt="next song"
+              />
+            </button>
+          </div>
+          <div class="seekbar">
+            <div class="seekbar-progress"></div>
+          </div>
+          <!-- <div class="song-time"></div> -->
         </div>
-        <div class="seekbar">
-          <div class="seekbar-progress"></div>
-        </div>
-        <!-- <div class="song-time"></div> -->
       </div>
     </div>
 

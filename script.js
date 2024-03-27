@@ -26,6 +26,10 @@ const playMusic = (song) => {
   // let audio = new Audio(("/songs/" + song + ".mp3").trim());
   currentSong.src = ("/songs/" + song + ".mp3").trim();
   currentSong.play();
+  // change play symbol to pause after clicking a song
+  playSvg.src = "/assets/pause.svg";
+  document.querySelector(".song-info").innerHTML = song;
+  // document.querySelector(".song-time").innerHTML = "00:00 / 00:00";
 };
 
 const main = async () => {
@@ -64,8 +68,21 @@ const main = async () => {
   });
 
   // Event listener for play, next and previous buttons in music controls
+  // Note: play, prev, and next are the IDs of the button SVGs
+
   play.addEventListener("click", () => {
-    if (currentSong.paused) {
+    if (currentSong.src) {
+      if (currentSong.paused) {
+        currentSong.play();
+        playSvg.src = "/assets/pause.svg";
+        playSvg.style.transition = "transform 0.2s ease-in-out";
+        playSvg.style.transform = "rotate(180deg)";
+      } else {
+        currentSong.pause();
+        playSvg.src = "/assets/play.svg";
+        playSvg.style.transition = "transform 0.2s ease-in-out";
+        playSvg.style.transform = "rotate(0deg)";
+      }
     }
   });
 };

@@ -55,7 +55,7 @@ button {
 
 .left {
   width: 25vw;
-  padding: 0.5rem 0.25rem 0.5rem 0.5rem;
+  padding: 0.5rem 0.25rem 0 0.5rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -188,7 +188,7 @@ button {
 
 .right {
   width: 75vw;
-  padding: 0.5rem 0.5rem 0.5rem 0.25rem;
+  padding: 0.5rem 0.5rem 0 0.25rem;
   position: relative;
 }
 
@@ -283,6 +283,8 @@ button {
   padding: var(--block-padding);
   background: linear-gradient(to bottom, #1f1f1f, #121212 30%);
   flex-grow: 1;
+  border-bottom-left-radius: var(--block-border-radius);
+  border-bottom-right-radius: var(--block-border-radius);
 }
 
 .playlists h2 {
@@ -360,18 +362,37 @@ button {
 }
 
 .music-controls {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
   align-items: center;
   gap: 7px;
   /* position: sticky; */
-  /* bottom: 0; */
-  /* display: flex; */
   width: 100%;
-  padding: 1rem;
+  padding: 0 1rem;
   background-color: black;
   min-height: 6rem;
+}
+
+/* Track name */
+.song-info {
+  color: white;
+  height: 100%;
+  /* align-self: center;
+  justify-self: center; */
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  padding-left: 1rem;
+  /* justify-self: center; */
+}
+
+.control-btns-seekbar-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 .music-control-btns {
@@ -430,7 +451,7 @@ button {
   position: relative;
   margin: 0 auto;
   height: 6px;
-  width: 70%;
+  width: 50%;
   max-width: 700px;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 10px;
