@@ -132,7 +132,9 @@ button {
 
 .song-list li:hover {
   background-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(4px);
+  /* box-shadow: 0 8px 32px 0 rgba(31, 135, 79, 0.37); */
+  box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -447,12 +449,43 @@ button {
   width: 45%;
 }
 
+.seekbar-song-time-container {
+  display: flex;
+  /* justify-content: space-around; */
+  align-items: center;
+  width: 70%;
+  max-width: 700px;
+}
+
+.song-time {
+  color: white;
+  font-size: 0.8rem;
+  margin-right: 0.5em;
+  width: 4rem;
+  text-align: center;
+  /* visibility: hidden; */
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.song-duration {
+  color: white;
+  font-size: 0.8rem;
+  margin-left: 0.5em;
+  width: 4rem;
+  text-align: center;
+  /* visibility: hidden; */
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
 .seekbar {
   position: relative;
   margin: 0 auto;
   height: 6px;
-  width: 50%;
-  max-width: 700px;
+  width: 100%;
+  /* width: 20px; */
+  /* max-width: 700px; */
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 10px;
   cursor: pointer;
@@ -460,7 +493,7 @@ button {
 
 .seekbar-progress {
   position: absolute;
-  width: 50%;
+  width: 0;
   height: 100%;
   top: 0;
   left: 0;

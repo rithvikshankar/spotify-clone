@@ -32,9 +32,25 @@ const playMusic = (song) => {
   // document.querySelector(".song-time").innerHTML = "00:00 / 00:00";
 };
 
+// To make for eg. 120 seconds into 02:00
+const secondsToMMSS = (seconds) => {
+  if (isNaN(seconds) || seconds < 0) {
+    throw new Error("invalid duration");
+  }
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = Math.floor(seconds % 60);
+
+  const minutesFormatted = String(minutes).padStart(2, "0");
+  const secondsFormatted = String(remainingSeconds).padStart(2, "0");
+
+  return `${minutesFormatted}:${secondsFormatted}`;
+};
+
 const main = async () => {
   let songs = await getSongs();
-  // console.log(songs);
+  // Clicking the play button without clicking any song starts playing the first song
+  currentSong.src = "/songs/" + songs[0];
+  document.querySelector(".song-info").innerHTML = songs[0];
 
   const songsUl = document
     .querySelector(".song-list")
@@ -84,6 +100,31 @@ const main = async () => {
         playSvg.style.transform = "rotate(0deg)";
       }
     }
+  });
+
+  currentSong.addEventListener("timeupdate", () => {
+    console.log(currentSong.currentTime, currentSong.duration);
+    const songTime = document.querySelector(".song-time");
+    const songDuration = document.querySelector(".song-duration");
+    const seekbarProgress = document.querySelector(".seekbar-progress");
+
+    // Converting seconds to the 00:00 format
+    songTime.innerHTML = `${secondsToMMSS(currentSong.currentTime)}`;
+    songDuration.innerHTML = `${secondsToMMSS(currentSong.duration)}`;
+
+    // Time and duration are hidden by default until a song plays
+    songTime.style.opacity = "1";
+    songDuration.style.opacity = "1";
+
+    // Updating seekbar
+    seekbarProgress.style.width =
+      (currentSong.currentTime / currentSong.duration) * 100 + "%";
+  });
+
+  const seekbar = document.querySelector(".seekbar");
+  seekbar.addEventListener("click", (e) => {
+    document.querySelector(".seekbar-progress").style.width =
+      (e.offsetX / e.target.getBoundingClientRect().width) * 100 + "%";
   });
 };
 
