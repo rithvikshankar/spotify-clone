@@ -13,19 +13,30 @@
       <div class="left-right-container">
         <div class="left">
           <section class="home">
+            <div class="close-button-container dimmed-undimmed">
+              <img src="/assets/close.svg" alt="close" />
+            </div>
             <div class="logo invert">
               <img src="assets/logo.svg" alt="logo" />
             </div>
             <ul>
               <li class="dimmed-undimmed">
-                <img class="invert" src="assets/home.svg" alt="home" />Home
+                <div class="home-btn-container">
+                  <img
+                    class="home-icon invert"
+                    src="assets/home.svg"
+                    alt="home"
+                  />Home
+                </div>
               </li>
               <li class="dimmed-undimmed">
-                <img
-                  class="invert"
-                  src="assets/search.svg"
-                  alt="search"
-                />Search
+                <div class="search-btn-container">
+                  <img
+                    class="search-icon invert"
+                    src="assets/search.svg"
+                    alt="search"
+                  />Search
+                </div>
               </li>
             </ul>
           </section>
@@ -60,7 +71,10 @@
           <div class="right-content">
             <div class="header">
               <div class="nav">
-                <svg
+                <div class="hamburger">
+                  <img src="/assets/hamburger.svg" alt="hamburger menu" />
+                </div>
+                <!-- <svg
                   class="back-button dimmed-undimmed"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -76,8 +90,13 @@
                     stroke-linecap="round"
                     stroke-linejoin="round"
                   />
-                </svg>
-                <svg
+                </svg> -->
+                <img
+                  src="/assets/previousPage.svg"
+                  alt="previous page"
+                  class="back-button dimmed-undimmed"
+                />
+                <!-- <svg
                   class="forward-button dimmed-undimmed"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -93,9 +112,14 @@
                     stroke-linecap="round"
                     stroke-linejoin="round"
                   />
-                </svg>
+                </svg> -->
+                <img
+                  src="/assets/nextPage.svg"
+                  alt="next page"
+                  class="forward-button dimmed-undimmed"
+                />
               </div>
-              <div class="buttons">
+              <div class="login-signup-buttons">
                 <button class="signup-btn">Sign up</button>
                 <button class="login-btn">Log in</button>
               </div>

@@ -121,10 +121,29 @@ const main = async () => {
       (currentSong.currentTime / currentSong.duration) * 100 + "%";
   });
 
+  // getBoundingClientRect gets the actual width of the seekbar. Using it to seek to a particular point in the song by dividing the offsetX by the width of the seekbar.
   const seekbar = document.querySelector(".seekbar");
   seekbar.addEventListener("click", (e) => {
+    let seekbarPercent =
+      (e.offsetX / e.target.getBoundingClientRect().width) * 100;
+    // Updating the seekbar progress UI
     document.querySelector(".seekbar-progress").style.width =
-      (e.offsetX / e.target.getBoundingClientRect().width) * 100 + "%";
+      seekbarPercent + "%";
+
+    let newTime = (currentSong.duration * seekbarPercent) / 100;
+    if (newTime < currentSong.currentTime) {
+      // If the new time is less than the current time, we are seeking backward
+      currentSong.currentTime = newTime;
+    }
+    // Updating the actual song time
+    // Note: Doesn't seem to be working perfectly. Issue usually occurs when I click slightly to the left of where the progress currently is.
+    currentSong.currentTime = (currentSong.duration * seekbarPercent) / 100;
+  });
+
+  // Event listener for hamburger menu on mobile devices
+  const hamburger = document.querySelector(".hamburger");
+  hamburger.addEventListener("click", () => {
+    document.querySelector(".left").style.left = "0";
   });
 };
 

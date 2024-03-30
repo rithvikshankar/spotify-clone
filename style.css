@@ -63,6 +63,7 @@ button {
 
 .home {
   /* margin: 1.2rem; */
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
@@ -73,8 +74,8 @@ button {
   background-color: var(--bg-grey);
 }
 
-.home:hover {
-  cursor: pointer;
+.logo {
+  width: 50%;
 }
 
 .home ul {
@@ -85,10 +86,33 @@ button {
 
 .home ul li {
   display: flex;
-  gap: var(--icon-heading-gap);
+  /* gap: var(--icon-heading-gap); */
   align-items: center;
-  width: 1.4rem;
+  /* width: 1.4rem; */
   list-style: none;
+  /* cursor: pointer; */
+}
+
+.home-btn-container,
+.search-btn-container {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  gap: var(--icon-heading-gap);
+  cursor: pointer;
+}
+
+.home-icon,
+.search-icon {
+  height: 24px;
+  width: 24px;
+}
+
+.close-button-container {
+  position: absolute;
+  right: 1rem;
+  display: none;
+  cursor: pointer;
 }
 
 .library {
@@ -221,16 +245,26 @@ button {
   align-items: center;
 }
 
+.hamburger {
+  /* height: 24px;
+  width: 24px; */
+  display: none;
+}
+
 .forward-button {
   /* opacity: 60%; */
   /* border: 1px solid white;
   border-radius: 0.3rem; */
+  width: 16px;
+  height: 16px;
 }
 
 .back-button {
   /* opacity: 60%; */
   margin-left: 1rem;
-  margin-right: 0.5rem;
+  margin-right: 0.8rem;
+  width: 16px;
+  height: 16px;
   /* border: 1px solid white;
   border-radius: 0.3rem; */
 }
@@ -503,5 +537,50 @@ button {
 }
 
 .seekbar:hover .seekbar-progress {
-  background-color: #1db954;
+  background-color: #3ddd75;
+}
+
+@media (max-width: 1200px) {
+  .left {
+    position: absolute;
+    left: -100%;
+    transition: all 0.3s;
+    z-index: 1;
+    width: min(70%, 400px);
+    height: 100%;
+    gap: 0;
+  }
+
+  .home {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .library {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .right {
+    width: 100vw;
+    padding-left: 0.5rem;
+  }
+
+  .music-controls {
+  }
+
+  .hamburger {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0.5rem;
+    border-radius: 50%;
+  }
+
+  .close-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
