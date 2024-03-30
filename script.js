@@ -2,7 +2,7 @@
 let currentSong = new Audio();
 
 const getSongs = async () => {
-  let response = await fetch("http://127.0.0.1:5500/songs");
+  let response = await fetch("songs/");
   let rawSongData = await response.text();
   // console.log(rawSongData);
   let div = document.createElement("div");
@@ -15,7 +15,7 @@ const getSongs = async () => {
     let songHref = anchorElements[i].href;
     // NOTE: CHECK THIS LATER
     if (songHref.endsWith(".mp3")) {
-      songs.push(songHref.split("/songs/")[1]);
+      songs.push(songHref.split("songs/")[1]);
     }
   }
   return songs;
@@ -24,10 +24,10 @@ const getSongs = async () => {
 const playMusic = (song) => {
   // song only contains the name of the song. Need to add the directory and the extension to make it play
   // let audio = new Audio(("/songs/" + song + ".mp3").trim());
-  currentSong.src = ("/songs/" + song + ".mp3").trim();
+  currentSong.src = ("songs/" + song + ".mp3").trim();
   currentSong.play();
   // change play symbol to pause after clicking a song
-  playSvg.src = "/assets/pause.svg";
+  playSvg.src = "assets/pause.svg";
   document.querySelector(".song-info").innerHTML = song;
   // document.querySelector(".song-time").innerHTML = "00:00 / 00:00";
 };
@@ -49,7 +49,7 @@ const secondsToMMSS = (seconds) => {
 const main = async () => {
   let songs = await getSongs();
   // Clicking the play button without clicking any song starts playing the first song
-  currentSong.src = "/songs/" + songs[0];
+  currentSong.src = "songs/" + songs[0];
   document.querySelector(".song-info").innerHTML = songs[0];
 
   const songsUl = document
@@ -90,12 +90,12 @@ const main = async () => {
     if (currentSong.src) {
       if (currentSong.paused) {
         currentSong.play();
-        playSvg.src = "/assets/pause.svg";
+        playSvg.src = "assets/pause.svg";
         playSvg.style.transition = "transform 0.2s ease-in-out";
         playSvg.style.transform = "rotate(180deg)";
       } else {
         currentSong.pause();
-        playSvg.src = "/assets/play.svg";
+        playSvg.src = "assets/play.svg";
         playSvg.style.transition = "transform 0.2s ease-in-out";
         playSvg.style.transform = "rotate(0deg)";
       }
