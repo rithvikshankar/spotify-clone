@@ -59,10 +59,10 @@ button {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  transition: left 0.5s ease;
 }
 
 .home {
-  /* margin: 1.2rem; */
   position: relative;
   display: flex;
   flex-direction: column;
@@ -70,7 +70,6 @@ button {
   padding: var(--block-padding);
   border-radius: var(--block-border-radius);
   font-weight: bold;
-  /* color: rgba(255, 255, 255, 0.6); */
   background-color: var(--bg-grey);
 }
 
@@ -90,13 +89,11 @@ button {
   align-items: center;
   /* width: 1.4rem; */
   list-style: none;
-  /* cursor: pointer; */
 }
 
 .home-btn-container,
 .search-btn-container {
   display: flex;
-  /* justify-content: center; */
   align-items: center;
   gap: var(--icon-heading-gap);
   cursor: pointer;
@@ -108,7 +105,7 @@ button {
   width: 24px;
 }
 
-.close-button-container {
+.close-btn-container {
   position: absolute;
   right: 1rem;
   display: none;
@@ -118,7 +115,6 @@ button {
 .library {
   flex-grow: 1;
   padding: var(--block-padding);
-  /* color: rgba(255, 255, 255, 0.6); */
   font-weight: bold;
   border-radius: var(--block-border-radius);
   /* min-height: 50vh; */
@@ -157,7 +153,6 @@ button {
 .song-list li:hover {
   background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(4px);
-  /* box-shadow: 0 8px 32px 0 rgba(31, 135, 79, 0.37); */
   box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
@@ -221,11 +216,8 @@ button {
 .right-content {
   display: flex;
   flex-direction: column;
-  /* background-color: #121212; */
-
   height: 100%;
   border-radius: var(--block-border-radius);
-  /* position: relative; */
 }
 
 .header {
@@ -249,29 +241,20 @@ button {
   /* height: 24px;
   width: 24px; */
   display: none;
-}
-
-.forward-button {
-  /* opacity: 60%; */
-  /* border: 1px solid white;
-  border-radius: 0.3rem; */
-  width: 16px;
-  height: 16px;
+  cursor: pointer;
 }
 
 .back-button {
-  /* opacity: 60%; */
   margin-left: 1rem;
   margin-right: 0.8rem;
   width: 16px;
   height: 16px;
-  /* border: 1px solid white;
-  border-radius: 0.3rem; */
+  cursor: pointer;
 }
 
-.forward-button:hover,
-.back-button:hover .forward-button:active,
-.back-button:active {
+.forward-button {
+  width: 16px;
+  height: 16px;
   cursor: pointer;
 }
 
@@ -544,7 +527,7 @@ button {
   .left {
     position: absolute;
     left: -100%;
-    transition: all 0.3s;
+    /* transition: all 0.3s; */
     z-index: 1;
     width: min(70%, 400px);
     height: 100%;
@@ -578,7 +561,7 @@ button {
     border-radius: 50%;
   }
 
-  .close-button-container {
+  .close-btn-container {
     display: flex;
     justify-content: center;
     align-items: center;

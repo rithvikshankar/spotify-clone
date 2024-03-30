@@ -145,6 +145,12 @@ const main = async () => {
   hamburger.addEventListener("click", () => {
     document.querySelector(".left").style.left = "0";
   });
+
+  // Event listener for close button for hamburger menu
+  const closeBtn = document.querySelector(".close-btn-container");
+  closeBtn.addEventListener("click", () => {
+    document.querySelector(".left").style.left = "-100%";
+  });
 };
 
 main();
